@@ -3,5 +3,4 @@ class role::master_server {
   include dockeragent
   dockeragent::node { 'web.puppet.vm': }
   dockeragent::node { 'db.puppet.vm': }
-  include activemq
 }
