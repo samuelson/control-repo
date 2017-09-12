@@ -1,7 +1,7 @@
 class minecraft (
   $game_mode = 1,
   $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.1/minecraft_server.1.12.1.jar',
-  $install_dir = ‘/opt/minecraft’
+  $install_dir = '/opt/minecraft'
 ){
   include wget
   wget::fetch { "download minecraft":
@@ -14,18 +14,18 @@ class minecraft (
     ensure => directory,
   }
 
-  package {‘java’:
+  package {'java':
     ensure => present,
   }
-  file {“${install_dir}/eula.txt”:
+  file {"${install_dir}/eula.txt":
     ensure => file,
     content => ‘eula=true’
   }
-  file {‘/etc/systemd/system/minecraft.service’:
+  file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    source => ‘puppet:///modules/minecraft/minecraft.service’,
+    source => 'puppet:///modules/minecraft/minecraft.service',
   }
-  service { ‘minecraft’:
+  service { 'minecraft':
     ensure => running,
     enable => true,
   }
