@@ -6,7 +6,7 @@ class minecraft (
   include wget
   wget::fetch { "download minecraft":
     source      => $url,
-    destination => $install_dir',
+    destination => $install_dir,
     timeout     => 0,
     verbose     => false,
   }
@@ -19,7 +19,7 @@ class minecraft (
   }
   file {"${install_dir}/eula.txt":
     ensure => file,
-    content => ‘eula=true’
+    content => 'eula=true'
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
