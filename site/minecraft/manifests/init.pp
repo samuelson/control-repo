@@ -5,7 +5,7 @@ class minecraft (
 ){
   include wget
   wget::fetch { "download minecraft":
-    source      => $minecraft_url,
+    source      => $url,
     destination => $install_dir',
     timeout     => 0,
     verbose     => false,
