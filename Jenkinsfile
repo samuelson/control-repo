@@ -6,5 +6,10 @@ pipeline {
         sh 'echo lint'
       }
     }
+    stage('list') {
+      steps {
+        sh 'ls -alh'
+      }
+    }
   }
 }
